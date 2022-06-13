@@ -232,6 +232,8 @@ fn claim_primary_slot(
 ) -> Option<(PreDigest, AuthorityId)> {
 	let Epoch { authorities, randomness, epoch_index, .. } = epoch;
 
+	println!("AUTH WEIGHT: {:?}", authorities);
+
 	for (authority_id, authority_index) in keys {
 		let transcript = make_transcript(randomness, slot, *epoch_index);
 		let transcript_data = make_transcript_data(randomness, slot, *epoch_index);
